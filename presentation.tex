@@ -1,0 +1,140 @@
+\documentclass[10pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{minted}
+
+\usemintedstyle{manni}
+
+\definecolor{verydarkgray}{RGB}{33,33,33}
+\renewcommand{\theFancyVerbLine}{\ttfamily \textcolor[rgb]{0.87,0.87,0.87}{\small \oldstylenums{\arabic{FancyVerbLine}}}}
+
+\usetheme{metropolis}
+%\setbeamerfont{headline}{size=\large}
+%\setbeamerfont*{section in head/foot}{size=\tiny}
+%\setbeamertemplate{toc}{circle}
+%\setbeamertemplate{itemize subitem}[triangle] % if you want a triangle
+%\setbeamercovered{transparent}
+
+%Für [Seite]/[Anzahl-Seiten] in der unteren rechten ecke
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle%
+\renewcommand*\insertshorttitle
+{
+	\oldmacro\hfill%
+	\thepage\,/\,\pageref{LastPage}
+}
+
+\usecolortheme{owl}
+
+%\beamertemplatenavigationsymbolsempty
+
+\author{Hauke Stieler}
+\title{Eine Einführung in go}
+\date{\footnotesize \today}
+\institute{Fachbereich Informatik der Universität Hamburg}\titlegraphic{\hfill\includegraphics[width=0.65\textwidth]{images/gopher-inv}}
+
+\begin{document}
+	\maketitle
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}{Agenda}
+		\begin{itemize}
+			\item some history
+			\item basic features
+			\item cool web stuff
+			\item concurrency212121
+			\item interfaces
+		\end{itemize}
+	\end{frame}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}{Why go?}
+		In 2007, three guys at Google were frustrated with the existing languages for writing server software:
+		\begin{itemize}
+			\item Compiling C++ was too slow
+			\item Writing Java felt too verbose
+			\item Aversion against inheritance and design patterns
+			\item Getting concurrency right was hard
+		\end{itemize}
+	\end{frame}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}[fragile]{C++}
+		\begin{minted}[bgcolor=verydarkgray,linenos]{cpp}
+// Within large projects, popular header files
+// get included thousands of times and hence
+// have to be recompiled over and over again
+#include <iostream>
+#include <string>
+#include <vector>
+		\end{minted}
+	\end{frame}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}[fragile]{Java}
+		\begin{minted}[bgcolor=verydarkgray,linenos,fontsize=\tiny]{java}
+public class PersonBean {
+	private String name;
+	private int age;
+	
+	public PersonBean(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public int getAge() {
+		return age;
+	}
+	
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	@Override
+	public String toString() {
+		return "PersonBean [name=" + name + ", age=" + age + "]";
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + age;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PersonBean other = (PersonBean) obj;
+		if (age != other.age)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+}
+		\end{minted}
+	\end{frame}
+\end{document}
