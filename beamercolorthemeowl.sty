@@ -58,6 +58,13 @@
   \colorlet{orange}{OwlOrange}
   \colorlet{cyan}{OwlCyan}
 }
+\@ifclassloaded{beamer}{
+	\hypersetup{
+		colorlinks,
+		allcolors=.,
+		urlcolor=OwlBlue,
+	}
+}{}
   \@ifclassloaded{beamer}{
     \setbeamercolor*{alerted text}{
       fg=OwlRed
