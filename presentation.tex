@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{minted}
+\usepackage{textcomp}
 
 \usemintedstyle{manni}
 
@@ -71,11 +72,19 @@
 #include <string>
 #include <vector>
 		\end{minted}
-		\pause
 		\vfill
-		\texttt{gcc} copies specified file by \mintinline[bgcolor=verydarkgray]{cpp}{#include} recursively into source file. The \textit{same} header file gets compiled over and over again.
+		\pause
+		\texttt{gcc} copies specified file by \mintinline[bgcolor=verydarkgray]{cpp}{#include} recursively into source file. The \textit{same} header file gets recompiled over and over again.\\
+		\hfill\\
+		\textrightarrow ~Rob Pike: \href{https://www.youtube.com/watch?v=5kj5ApnhPAE}{Public Static Void} at OSCON 2010
 		\vfill
 \end{frame}
+
+	\begin{frame}
+		\begin{center}
+			\includegraphics[width=0.65\textwidth]{images/compiling-inv}
+		\end{center}
+	\end{frame}
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
