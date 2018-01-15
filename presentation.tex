@@ -5,7 +5,7 @@
 
 \usemintedstyle{manni}
 
-\definecolor{verydarkgray}{RGB}{33,33,33}
+\definecolor{verydarkgray}{RGB}{15,15,15}
 \renewcommand{\theFancyVerbLine}{\ttfamily \textcolor[rgb]{0.87,0.87,0.87}{\small \oldstylenums{\arabic{FancyVerbLine}}}}
 
 \usetheme{metropolis}
@@ -63,7 +63,7 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}[fragile]{C++}
-		\begin{minted}[bgcolor=verydarkgray,linenos]{cpp}
+		\begin{minted}[bgcolor=verydarkgray,linenos,tabsize=4]{cpp}
 // Within large projects, popular header files
 // get included thousands of times and hence
 // have to be recompiled over and over again
@@ -71,13 +71,31 @@
 #include <string>
 #include <vector>
 		\end{minted}
-	\end{frame}
+		\pause
+		\vfill
+		\texttt{gcc} copies specified file by \mintinline[bgcolor=verydarkgray]{cpp}{#include} recursively into source file. The \textit{same} header file gets compiled over and over again.
+		\vfill
+\end{frame}
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	\begin{frame}[fragile]{Java}
-		\begin{minted}[bgcolor=verydarkgray,linenos,fontsize=\tiny]{java}
-public class PersonBean {
+	\begin{frame}[fragile]{Java I}
+		Let's do some Java.\\
+		Write a \mintinline[bgcolor=verydarkgray]{java}{public class Person} that does the following:
+		\begin{itemize}
+			\item store a string \texttt{name}
+			\item store an int \texttt{age}
+		\end{itemize}
+		Simple, right?
+		\vfill\pause
+		NO :(
+\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Java I}
+		\begin{minted}[bgcolor=verydarkgray,linenos,stripnl=false,tabsize=4,breaklines]{java}
+public class Person {
 	private String name;
 	private int age;
 	
@@ -94,6 +112,10 @@ public class PersonBean {
 		this.name = name;
 	}
 	
+		\end{minted}
+\end{frame}
+	\begin{frame}[fragile]{Java II}
+		\begin{minted}[bgcolor=verydarkgray,linenos,firstnumber=last,tabsize=4,breaklines]{java}
 	public int getAge() {
 		return age;
 	}
@@ -104,12 +126,16 @@ public class PersonBean {
 	
 	@Override
 	public String toString() {
-		return "PersonBean [name=" + name + ", age=" + age + "]";
+		return "PersonBean [" + "name=" + name + ", " +	"age=" + age + "]";
 	}
 	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
+		\end{minted}
+\end{frame}
+	\begin{frame}[fragile]{Java III}
+		\begin{minted}[bgcolor=verydarkgray,linenos,firstnumber=last,tabsize=4,breaklines]{java}
 		int result = 1;
 		result = prime * result + age;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -126,6 +152,11 @@ public class PersonBean {
 			return false;
 		PersonBean other = (PersonBean) obj;
 		if (age != other.age)
+		\end{minted}
+\end{frame}
+	\begin{frame}[fragile]{Java IV}
+		\vspace{-2.5cm}
+		\begin{minted}[bgcolor=verydarkgray,linenos,firstnumber=last,tabsize=4,breaklines]{java}
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -136,5 +167,5 @@ public class PersonBean {
 	}
 }
 		\end{minted}
-	\end{frame}
+\end{frame}
 \end{document}
