@@ -93,7 +93,7 @@
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	\begin{frame}[fragile]{Java I}
+	\begin{frame}[fragile]{Java}
 		Let's do some Java.\\
 		Write a \mintinline{java}{public class Person} that does the following:
 		\begin{itemize}
@@ -113,7 +113,7 @@ public class Person {
 	private String name;
 	private int age;
 	
-	public PersonBean(String name, int age) {
+	public Person(String name, int age) {
 		this.name = name;
 		this.age = age;
 	}
@@ -140,7 +140,7 @@ public class Person {
 	
 	@Override
 	public String toString() {
-		return "PersonBean [" + "name=" + name + ", " +	"age=" + age + "]";
+		return "Person [" + "name=" + name + ", " +	"age=" + age + "]";
 	}
 	
 	@Override
@@ -164,7 +164,7 @@ public class Person {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PersonBean other = (PersonBean) obj;
+		Person other = (Person) obj;
 		if (age != other.age)
 		\end{minted}
 \end{frame}
