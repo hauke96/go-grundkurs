@@ -1,11 +1,3 @@
-package main
-
-import (
-	"fmt"
-	"net/http"
-	"sync/atomic"
-)
-
 func main() {
 	http.HandleFunc("/", root)
 	fmt.Println("waiting for requests...")

@@ -455,7 +455,7 @@ x := 0
 	\begin{frame}[t,fragile]{Web server I}
 		\inputminted{go}{code/11_server.go}
 		\pause
-		Compiles ans runs. Where's the bug?
+		Compiles and runs. Where's the bug?
 	\end{frame}
 					
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -463,6 +463,162 @@ x := 0
 	\begin{frame}[fragile]{Web server II}
 		\inputminted{go}{code/12_mutex.go}
 	\end{frame}
+						
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Web server III}
+		\inputminted{go}{code/13_atomic.go}
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Exercise}
+		Write a web server that generates a web page with 3 random XKCD comics.\\
+		\begin{center}
+			\includegraphics[width=0.65\textwidth]{images/random_number\inv}
+		\end{center}
+	\end{frame}
+							
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Channels and goroutines I}
+		\begin{minted}{go}
+// full spec at https://api.stackexchange.com/docs/info
+type Item struct {
+	Users     int `json:"total_users"`
+	Questions int `json:"total_questions"`
+	Answers   int `json:"total_answers"`
+	Comments  int `json:"total_comments"`
+}
+
+type Info struct {
+	Site  string
+	Items []Item
+}
+		\end{minted}
+	\end{frame}
+								
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Channels and goroutines II}
+		\begin{minted}[firstnumber=last,fontsize=\footnotesize]{go}
+func FetchInfo(site string, infos chan *Info, errs chan error) {
+	url := "https://api.stackexchange.com/2.2/info?site=" + site
+	response, err := http.Get(url)
+	if err != nil {
+		errs <- err
+		return
+	}
+	defer response.Body.Close()
+	if response.StatusCode != http.StatusOK {
+		errs <- errors.New(response.Status)
+		return
+	}
+	var info Info
+	decoder := json.NewDecoder(response.Body)
+	if err := decoder.Decode(&info); err != nil {
+		errs <- err
+		return
+	}
+	info.Site = site
+	infos <- &info
+}
+		\end{minted}
+	\end{frame}
+									
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Channels and goroutines III}
+		\begin{minted}[firstnumber=last,fontsize=\footnotesize]{go}
+func main() {
+	sites := [...]string{
+		"stackoverflow",
+		"serverfault",
+		"superuser"}
+
+	infos := make(chan *Info)
+	errs := make(chan error)
+
+	for _, site := range sites {
+		go FetchInfo(site, infos, errs)
+	}
+
+	for range sites {
+		select {
+		case info := <-infos:
+			fmt.Printf("%#v\n\n", info)
+		case err := <-errs:
+			fmt.Printf("%s\n\n", err)
+		}
+	}
+}
+		\end{minted}
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Exercise}
+		Have your web server fetch the random XKCD comics concurrently.
+	\end{frame}
+							
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Circles and rectangles}
+		\inputminted[fontsize=\scriptsize]{go}{code/15_shapes.go}
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Methods}
+		\inputminted[fontsize=\scriptsize]{go}{code/16_methods.go}
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Interfaces I}
+		\inputminted[fontsize=\scriptsize]{go}{code/17_interfaces.go}
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Interfaces II}
+		\inputminted[fontsize=\scriptsize,firstnumber=last]{go}{code/17b_interfaces.go}
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Exercise}
+		Implement 2 additional shapes: \texttt{Square} and \texttt{Triangle}.
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Where to go}
+		\href{https://golang.org/doc/}{https://golang.org/doc/}
+		
+		\href{https://gobyexample.com/}{https://gobyexample.com/}
+		
+		\href{https://blog.golang.org/}{https://blog.golang.org/}
+		
+		\href{https://forum.golangbridge.org/}{https://forum.golangbridge.org/}
+		
+		\href{https://groups.google.com/forum/#!forum/golang-nuts}{https://groups.google.com/forum/\#!forum/golang-nuts}
+		
+		\href{https://stackoverflow.com/questions/tagged/go}{https://stackoverflow.com/questions/tagged/go}
+		
+		\href{https://www.reddit.com/r/golang/}{https://www.reddit.com/r/golang/}
+		
+		\href{http://www.gopl.io/}{http://www.gopl.io/}
+	\end{frame}
+									
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{}
+		\begin{center}
+			\texttt{fmt.Println("Thanks for not falling asleep :)")}
+		\end{center}
+	\end{frame}
+\end{document}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
@@ -484,4 +640,3 @@ x := 0
 	
 	\begin{frame}[t,fragile]{}
 	\end{frame}
-\end{document}
