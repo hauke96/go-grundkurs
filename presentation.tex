@@ -18,7 +18,7 @@
 
 % DARK
 \definecolor{verydarkgray}{RGB}{15,15,15}
-\usemintedstyle{manni}
+\usemintedstyle{monokai}
 \usetheme{metropolis}
 \usecolortheme{owl}
 \newcommand{\inv}{-inv}
@@ -85,10 +85,9 @@
 #include <string>
 #include <vector>
 		\end{minted}
-		\\\\\\
 		\pause
 		\texttt{gcc} copies specified file by \mintinline{cpp}{#include} recursively into source file. The \textit{same} header file gets recompiled over and over again.\\
-		\hfill\\
+		\\
 		\textrightarrow ~Rob Pike: \href{https://www.youtube.com/watch?v=5kj5ApnhPAE}{Public Static Void} at OSCON 2010
 \end{frame}
 
@@ -114,7 +113,7 @@
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Java I}
+	\begin{frame}[t,fragile]{Java I}
 		\begin{minted}[stripnl=false]{java}
 public class Person {
 	private String name;
@@ -135,7 +134,7 @@ public class Person {
 	
 		\end{minted}
 \end{frame}
-	\begin{frame}[fragile]{Java II}
+	\begin{frame}[t,fragile]{Java II}
 		\begin{minted}[firstnumber=last]{java}
 	public int getAge() {
 		return age;
@@ -155,7 +154,7 @@ public class Person {
 		final int prime = 31;
 		\end{minted}
 \end{frame}
-	\begin{frame}[fragile]{Java III}
+	\begin{frame}[t,fragile]{Java III}
 		\begin{minted}[firstnumber=last]{java}
 		int result = 1;
 		result = prime * result + age;
@@ -175,8 +174,7 @@ public class Person {
 		if (age != other.age)
 		\end{minted}
 \end{frame}
-	\begin{frame}[fragile]{Java IV}
-		\vspace{-2.5cm}
+	\begin{frame}[t,fragile]{Java IV}
 		\begin{minted}[firstnumber=last]{java}
 			return false;
 		if (name == null) {
@@ -227,7 +225,7 @@ public class Person {
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Hello world!}
+	\begin{frame}[t,fragile]{Hello world!}
 		\inputminted{go}{code/01_hello.go}
 		\vspace*{-4ex}
 		\begin{itemize}
@@ -340,8 +338,8 @@ bool   byte    rune     string   error
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Declarations}
-		\begin{minted}[linenos=false]{go}
+	\begin{frame}[t,fragile]{Declarations}
+		\begin{minted}{go}
 // three semantically identical alternatives
 var x int = 0
 var x int
@@ -354,31 +352,31 @@ x := 0
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Strings}
+	\begin{frame}[t,fragile]{Strings}
 		\inputminted{go}{code/02_strings.go}
 	\end{frame}
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Arrays}
+	\begin{frame}[t,fragile]{Arrays}
 		\inputminted{go}{code/03_arrays.go}
 	\end{frame}
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Pointers}
+	\begin{frame}[t,fragile]{Pointers}
 		\inputminted{go}{code/04_pointers.go}
 	\end{frame}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Slices}
+	\begin{frame}[t,fragile]{Slices}
 		\inputminted{go}{code/05_slices.go}
 	\end{frame}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Slices can grow}
+	\begin{frame}[t,fragile]{Slices can grow}
 		\inputminted{go}{code/06_sieve.go}
 	\end{frame}
 	
@@ -402,13 +400,13 @@ x := 0
 		
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Maps}
+	\begin{frame}[t,fragile]{Maps}
 		\inputminted{go}{code/07_maps.go}
 	\end{frame}
 			
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Maps}
+	\begin{frame}[t,fragile]{Maps}
 		\inputminted{go}{code/07b_maps.go}
 	\end{frame}
 	
@@ -422,25 +420,25 @@ x := 0
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Structs}
+	\begin{frame}[t,fragile]{Structs}
 		\inputminted{go}{code/08_structs.go}
 	\end{frame}
 		
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Structs}
+	\begin{frame}[t,fragile]{Structs}
 		\inputminted{go}{code/09_structs.go}
 	\end{frame}
 			
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Web client I}
+	\begin{frame}[t,fragile]{Web client I}
 		\inputminted[fontsize=\footnotesize]{go}{code/10_xkcd.go}
 	\end{frame}
 				
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Web client II}
+	\begin{frame}[t,fragile]{Web client II}
 		\inputminted{go}{code/10b_xkcd.go}
 	\end{frame}
 	
@@ -460,13 +458,13 @@ x := 0
 					
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Web server II}
+	\begin{frame}[t,fragile]{Web server II}
 		\inputminted{go}{code/12_mutex.go}
 	\end{frame}
 						
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Web server III}
+	\begin{frame}[t,fragile]{Web server III}
 		\inputminted{go}{code/13_atomic.go}
 	\end{frame}
 	
@@ -481,78 +479,20 @@ x := 0
 							
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Channels and goroutines I}
-		\begin{minted}{go}
-// full spec at https://api.stackexchange.com/docs/info
-type Item struct {
-	Users     int `json:"total_users"`
-	Questions int `json:"total_questions"`
-	Answers   int `json:"total_answers"`
-	Comments  int `json:"total_comments"`
-}
-
-type Info struct {
-	Site  string
-	Items []Item
-}
-		\end{minted}
+	\begin{frame}[t,fragile]{Channels and goroutines I}
+		\inputminted{go}{code/14_stack.go}
 	\end{frame}
 								
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Channels and goroutines II}
-		\begin{minted}[firstnumber=last,fontsize=\footnotesize]{go}
-func FetchInfo(site string, infos chan *Info, errs chan error) {
-	url := "https://api.stackexchange.com/2.2/info?site=" + site
-	response, err := http.Get(url)
-	if err != nil {
-		errs <- err
-		return
-	}
-	defer response.Body.Close()
-	if response.StatusCode != http.StatusOK {
-		errs <- errors.New(response.Status)
-		return
-	}
-	var info Info
-	decoder := json.NewDecoder(response.Body)
-	if err := decoder.Decode(&info); err != nil {
-		errs <- err
-		return
-	}
-	info.Site = site
-	infos <- &info
-}
-		\end{minted}
+	\begin{frame}[t,fragile]{Channels and goroutines II}
+		\inputminted[firstnumber=last,fontsize=\footnotesize]{go}{code/14b_stack.go}
 	\end{frame}
 									
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Channels and goroutines III}
-		\begin{minted}[firstnumber=last,fontsize=\footnotesize]{go}
-func main() {
-	sites := [...]string{
-		"stackoverflow",
-		"serverfault",
-		"superuser"}
-
-	infos := make(chan *Info)
-	errs := make(chan error)
-
-	for _, site := range sites {
-		go FetchInfo(site, infos, errs)
-	}
-
-	for range sites {
-		select {
-		case info := <-infos:
-			fmt.Printf("%#v\n\n", info)
-		case err := <-errs:
-			fmt.Printf("%s\n\n", err)
-		}
-	}
-}
-		\end{minted}
+	\begin{frame}[t,fragile]{Channels and goroutines III}
+		\inputminted[firstnumber=last,fontsize=\footnotesize]{go}{code/14c_stack.go}
 	\end{frame}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -563,25 +503,25 @@ func main() {
 							
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Circles and rectangles}
+	\begin{frame}[t,fragile]{Circles and rectangles}
 		\inputminted[fontsize=\scriptsize]{go}{code/15_shapes.go}
 	\end{frame}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Methods}
+	\begin{frame}[t,fragile]{Methods}
 		\inputminted[fontsize=\scriptsize]{go}{code/16_methods.go}
 	\end{frame}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Interfaces I}
+	\begin{frame}[t,fragile]{Interfaces I}
 		\inputminted[fontsize=\scriptsize]{go}{code/17_interfaces.go}
 	\end{frame}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Interfaces II}
+	\begin{frame}[t,fragile]{Interfaces II}
 		\inputminted[fontsize=\scriptsize,firstnumber=last]{go}{code/17b_interfaces.go}
 	\end{frame}
 	
