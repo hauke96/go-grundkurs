@@ -14,6 +14,7 @@
 %\usecolortheme[snowy]{owl}
 %\newcommand{\inv}{}
 %\renewcommand{\theFancyVerbLine}{\ttfamily\textcolor[rgb]{0.13,0.13,0.13}{\footnotesize \oldstylenums{\arabic{FancyVerbLine}}}}
+%\setbeamercolor{section in toc}{fg=black}
 
 % DARK
 \definecolor{verydarkgray}{RGB}{15,15,15}
@@ -22,6 +23,7 @@
 \usecolortheme{owl}
 \newcommand{\inv}{-inv}
 \renewcommand{\theFancyVerbLine}{\ttfamily\textcolor[rgb]{0.87,0.87,0.87}{\footnotesize \oldstylenums{\arabic{FancyVerbLine}}}}
+\setbeamercolor{section in toc}{fg=white}
 
 %Für [Seite]/[Anzahl-Seiten] in der unteren rechten ecke
 \newcommand*\oldmacro{}%
@@ -54,13 +56,7 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\begin{frame}{Agenda}
-		\begin{itemize}
-			\item some history
-			\item basic features
-			\item cool web stuff
-			\item concurrency
-			\item interfaces
-		\end{itemize}
+		\tableofcontents
 	\end{frame}
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -75,6 +71,10 @@
 		\end{itemize}
 	\end{frame}
 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section{Some history}
+	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}[t,fragile]{C++}
@@ -223,6 +223,10 @@ public class Person {
 			\includegraphics[width=0.85\textwidth]{images/the_general_problem\inv}
 		\end{center}
 	\end{frame}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section{Basic features}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
@@ -430,6 +434,10 @@ x := 0
 	\begin{frame}[t,fragile]{Structs}
 		\inputminted{go}{code/09_structs.go}
 	\end{frame}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section{Cool web stuff}
 			
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
@@ -477,6 +485,10 @@ x := 0
 			\includegraphics[width=0.65\textwidth]{images/random_number\inv}
 		\end{center}
 	\end{frame}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section{Concurrency}
 							
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
@@ -501,6 +513,10 @@ x := 0
 	\begin{frame}[fragile]{Exercise}
 		Have your web server fetch the random XKCD comics concurrently.
 	\end{frame}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\section{Interfaces}
 							
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
