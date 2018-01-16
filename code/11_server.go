@@ -1,18 +1,9 @@
-package main
-
-import (
-	"fmt"
-	"net/http"
-)
-
 func main() {
 	http.HandleFunc("/", root)
 	fmt.Println("waiting for requests...")
 	http.ListenAndServe(":8080", nil)
 }
-
 var counter = 0
-
 func root(writer http.ResponseWriter, request *http.Request) {
 	fmt.Printf("%s\n\n", request)
 	counter++

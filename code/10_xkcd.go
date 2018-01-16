@@ -1,14 +1,4 @@
-package main
-
-import (
-	"encoding/json"
-	"errors"
-	"fmt"
-	"net/http"
-)
-
-// full spec at https://xkcd.com/json.html
-type Xkcd struct {
+type Xkcd struct { // full spec at https://xkcd.com/json.html
 	Title string
 	Hover string `json:"alt"`
 }
@@ -28,13 +18,4 @@ func FetchCurrentXkcdComic() (*Xkcd, error) {
 		return nil, err
 	}
 	return &xkcd, nil
-}
-
-func main() {
-	xkcd, err := FetchCurrentXkcdComic()
-	if err != nil {
-		fmt.Println(err)
-	} else {
-		fmt.Printf("%s\n\n%s\n", xkcd.Title, xkcd.Hover)
-	}
 }

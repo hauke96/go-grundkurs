@@ -1,7 +1,3 @@
-package main
-
-import "fmt"
-
 func initSha1(a [20]byte) {
 	// a is an array of 20 bytes
 	a[0] = 0x01

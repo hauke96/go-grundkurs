@@ -1,17 +1,3 @@
-package main
-
-import (
-	"fmt"
-	"net/http"
-	"sync"
-)
-
-func main() {
-	http.HandleFunc("/", root)
-	fmt.Println("waiting for requests...")
-	http.ListenAndServe(":8080", nil)
-}
-
 var counter = 0
 var mutex sync.Mutex
 

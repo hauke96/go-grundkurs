@@ -4,10 +4,10 @@
 \usepackage{minted}
 \usepackage{textcomp}
 
-\setminted{bgcolor=verydarkgray,linenos,tabsize=4,breaklines}
+\setminted{bgcolor=verydarkgray,linenos,tabsize=4,breaklines,fontsize=\small}
 \setminted[bash]{bgcolor=verydarkgray,linenos=false,tabsize=4,breaklines}
 
-\renewcommand{\theFancyVerbLine}{\ttfamily \textcolor[rgb]{0.87,0.87,0.87}{\small \oldstylenums{\arabic{FancyVerbLine}}}}
+\renewcommand{\theFancyVerbLine}{\ttfamily \textcolor[rgb]{0.87,0.87,0.87}{\footnotesize \oldstylenums{\arabic{FancyVerbLine}}}}
 
 % LIGHT
 %\definecolor{verydarkgray}{RGB}{235,235,235}
@@ -340,10 +340,7 @@ bool   byte    rune     string   error
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[t,fragile]{}
-		\begin{center}
-			Declarations
-		\end{center}
+	\begin{frame}[fragile]{Declarations}
 		\begin{minted}[linenos=false]{go}
 // three semantically identical alternatives
 var x int = 0
@@ -357,6 +354,134 @@ x := 0
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
+	\begin{frame}[fragile]{Strings}
+		\inputminted{go}{code/02_strings.go}
+	\end{frame}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Arrays}
+		\inputminted{go}{code/03_arrays.go}
+	\end{frame}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Pointers}
+		\inputminted{go}{code/04_pointers.go}
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Slices}
+		\inputminted{go}{code/05_slices.go}
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Slices can grow}
+		\inputminted{go}{code/06_sieve.go}
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Exercise}
+		\begin{enumerate}[I.]
+			\item Extract two functions from the last main function:
+				\begin{itemize}
+					\item \texttt{markCompounds}
+					\item \texttt{gatherPrimes}
+				\end{itemize}
+			\item Determine the growth strategy of append by printing after each call:
+				\begin{itemize}
+					\item either a pointer to the first element\\
+					or\\
+					\item the result of calling the special cap function
+				\end{itemize}
+		\end{enumerate}
+	\end{frame}
+		
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Maps}
+		\inputminted{go}{code/07_maps.go}
+	\end{frame}
+			
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Maps}
+		\inputminted{go}{code/07b_maps.go}
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Exercise}
+		Write a function that counts the occurrences of all characters in a given string.
+	
+		Which value is returned by map lookup for missing keys?
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Structs}
+		\inputminted{go}{code/08_structs.go}
+	\end{frame}
+		
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Structs}
+		\inputminted{go}{code/09_structs.go}
+	\end{frame}
+			
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Web client I}
+		\inputminted[fontsize=\footnotesize]{go}{code/10_xkcd.go}
+	\end{frame}
+				
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Web client II}
+		\inputminted{go}{code/10b_xkcd.go}
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Exercise}
+		Fetch the 3 most recent XKCD comics and print additional information of your choice.
+	\end{frame}
+					
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[t,fragile]{Web server I}
+		\inputminted{go}{code/11_server.go}
+		\pause
+		Compiles ans runs. Where's the bug?
+	\end{frame}
+					
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Web server II}
+		\inputminted{go}{code/12_mutex.go}
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[t,fragile]{}
+		\begin{center}
+		\end{center}
+		\begin{minted}[linenos=false]{go}
+		\end{minted}
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
 	\begin{frame}[fragile]{}
+		\begin{minted}[linenos=false]{go}
+		\end{minted}
+	\end{frame}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[t,fragile]{}
 	\end{frame}
 \end{document}
