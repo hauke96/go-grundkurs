@@ -5,6 +5,7 @@
 \usepackage{textcomp}
 
 \setminted{bgcolor=verydarkgray,linenos,tabsize=4,breaklines}
+\setminted[bash]{bgcolor=verydarkgray,linenos=false,tabsize=4,breaklines}
 
 \renewcommand{\theFancyVerbLine}{\ttfamily \textcolor[rgb]{0.87,0.87,0.87}{\small \oldstylenums{\arabic{FancyVerbLine}}}}
 
@@ -76,7 +77,7 @@
 #include <string>
 #include <vector>
 		\end{minted}
-		\vfill
+		\\\\\\
 		\pause
 		\texttt{gcc} copies specified file by \mintinline{cpp}{#include} recursively into source file. The \textit{same} header file gets recompiled over and over again.\\
 		\hfill\\
@@ -221,6 +222,7 @@ public class Person {
 	
 	\begin{frame}[fragile]{Hello world!}
 		\inputminted{go}{code/01_hello.go}
+		\\
 		\begin{itemize}
 			\item The import declaration imports entire packages
 			\item All imported names must be qualified
@@ -232,12 +234,100 @@ public class Person {
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\begin{frame}[fragile]{Hello world!}
-		If not already done: Get the \texttt{go} compiler:
+		Get the \texttt{go} compiler:\\\\
 		\begin{minted}{bash}
-$ sudo apt install golang-go
+$ sudo apt-get install golang-go
+$ sudo pacman -S go
 
 ...or download from https://golang.org/dl
 		\end{minted}
+		\\\\\\
+		Run the code\footnote{The \texttt{go run} command works for single files, not always for projects}:\\\\
+		\begin{minted}{bash}
+$ go run hello.go
+		\end{minted}
+\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Basics}
+		\begin{center}
+			Keywords:
+		\end{center}
+		\begin{minted}[linenos=false]{go}
+break       default     func        interface   select
+case        defer       go          map         struct
+chan        else        goto        package     switch
+const       fallthrough if          range       type
+continue    for         import      return      var
+		\end{minted}
+		\begin{center}
+			Constants:
+		\end{center}
+		\begin{minted}[linenos=false]{go}
+true        false       nil         iota
+		\end{minted}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}[fragile]{Basics}
+		\begin{center}
+			Functions:
+		\end{center}
+		\begin{minted}[linenos=false]{go}
+new        len          complex     panic
+make       cap          real        recover
+close      append       imag
+           copy 
+           delete
+		\end{minted}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\begin{frame}[fragile]{Basics}
+		\begin{center}
+			Basic types:
+		\end{center}
+		\begin{minted}[linenos=false]{go}
+int    int8    int16    int32    int64
+uint   uint8   uint16   uint32   uint64   uintptr
+
+float32     float64
+complex64  complex128
+
+bool   byte    rune     string   error
+		\end{minted}
+		\\
+		\begin{itemize}
+			\item \mintinline{go}{int} and \mintinline{go}{uint} are platform-dependent
+			\item \mintinline{go}{byte} is the same as \mintinline{go}{uint8}
+			\item \mintinline{go}{rune} is the same as \mintinline{go}{uint32}
+			\item \mintinline{go}{uintptr} is large enough to hold pointers
+			\item \mintinline{go}{error} is a special type for error handling
+		\end{itemize}
+\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Basics}
+		\begin{center}
+			Operators:
+		\end{center}
+		\begin{minted}[linenos=false]{go}
+*   /   %   &   &^  <<  >>
++   -   ^   |
+==  !=  <   <=  >   >=
+&&
+||
+		\end{minted}
+		\\
+		\begin{itemize}
+			\item only 5 precedence levels!
+			\item \mintinline{go}{^} is both bitwise-xor (infix) and bitwise-not (prefix)
+			\item \mintinline{go}{&^} is bitwise-andn
+		\end{itemize}
 \end{frame}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
