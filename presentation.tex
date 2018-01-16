@@ -6,13 +6,21 @@
 
 \setminted{bgcolor=verydarkgray,linenos,tabsize=4,breaklines}
 
-% DARK
-\definecolor{verydarkgray}{RGB}{15,15,15}
 \renewcommand{\theFancyVerbLine}{\ttfamily \textcolor[rgb]{0.87,0.87,0.87}{\small \oldstylenums{\arabic{FancyVerbLine}}}}
 
+% LIGHT
+%\definecolor{verydarkgray}{RGB}{235,235,235}
+%\usemintedstyle{manni}
+%\usetheme{metropolis}
+%\usecolortheme[snowy]{owl}
+%\newcommand{\inv}{}
+
+% DARK
+\definecolor{verydarkgray}{RGB}{15,15,15}
 \usemintedstyle{manni}
 \usetheme{metropolis}
 \usecolortheme{owl}
+\newcommand{\inv}{-inv}
 
 %Für [Seite]/[Anzahl-Seiten] in der unteren rechten ecke
 \newcommand*\oldmacro{}%
@@ -28,7 +36,7 @@
 \author{Hauke Stieler}
 \title{Eine Einführung in go}
 \date{\footnotesize \today}
-\institute{Fachbereich Informatik der Universität Hamburg}\titlegraphic{\hfill\includegraphics[width=0.65\textwidth]{images/gopher-inv}}
+\institute{Fachbereich Informatik der Universität Hamburg}\titlegraphic{\hfill\includegraphics[width=0.65\textwidth]{images/gopher\inv}}
 
 \begin{document}
 	\maketitle
@@ -70,7 +78,7 @@
 		\end{minted}
 		\vfill
 		\pause
-		\texttt{gcc} copies specified file by \mintinline[bgcolor=verydarkgray]{cpp}{#include} recursively into source file. The \textit{same} header file gets recompiled over and over again.\\
+		\texttt{gcc} copies specified file by \mintinline{cpp}{#include} recursively into source file. The \textit{same} header file gets recompiled over and over again.\\
 		\hfill\\
 		\textrightarrow ~Rob Pike: \href{https://www.youtube.com/watch?v=5kj5ApnhPAE}{Public Static Void} at OSCON 2010
 		\vfill
@@ -78,7 +86,7 @@
 
 	\begin{frame}
 		\begin{center}
-			\includegraphics[width=0.65\textwidth]{images/compiling-inv}
+			\includegraphics[width=0.65\textwidth]{images/compiling\inv}
 		\end{center}
 	\end{frame}
 
@@ -86,7 +94,7 @@
 
 	\begin{frame}[fragile]{Java I}
 		Let's do some Java.\\
-		Write a \mintinline[bgcolor=verydarkgray]{java}{public class Person} that does the following:
+		Write a \mintinline{java}{public class Person} that does the following:
 		\begin{itemize}
 			\item store a string \texttt{name}
 			\item store an int \texttt{age}
@@ -205,14 +213,13 @@ public class Person {
 	
 	\begin{frame}
 		\begin{center}
-			\includegraphics[width=0.85\textwidth]{images/the_general_problem-inv}
+			\includegraphics[width=0.85\textwidth]{images/the_general_problem\inv}
 		\end{center}
 	\end{frame}
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\begin{frame}[fragile]{Hello world!}
-%		\gocode{code/01_hello.go}
 		\inputminted{go}{code/01_hello.go}
 		\begin{itemize}
 			\item The import declaration imports entire packages
