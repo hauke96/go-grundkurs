@@ -7,14 +7,13 @@
 \setminted{bgcolor=verydarkgray,linenos,tabsize=4,breaklines,fontsize=\small}
 \setminted[bash]{bgcolor=verydarkgray,linenos=false,tabsize=4,breaklines}
 
-\renewcommand{\theFancyVerbLine}{\ttfamily \textcolor[rgb]{0.87,0.87,0.87}{\footnotesize \oldstylenums{\arabic{FancyVerbLine}}}}
-
 % LIGHT
 %\definecolor{verydarkgray}{RGB}{235,235,235}
 %\usemintedstyle{manni}
 %\usetheme{metropolis}
 %\usecolortheme[snowy]{owl}
 %\newcommand{\inv}{}
+%\renewcommand{\theFancyVerbLine}{\ttfamily\textcolor[rgb]{0.13,0.13,0.13}{\footnotesize \oldstylenums{\arabic{FancyVerbLine}}}}
 
 % DARK
 \definecolor{verydarkgray}{RGB}{15,15,15}
@@ -22,6 +21,7 @@
 \usetheme{metropolis}
 \usecolortheme{owl}
 \newcommand{\inv}{-inv}
+\renewcommand{\theFancyVerbLine}{\ttfamily\textcolor[rgb]{0.87,0.87,0.87}{\footnotesize \oldstylenums{\arabic{FancyVerbLine}}}}
 
 %Für [Seite]/[Anzahl-Seiten] in der unteren rechten ecke
 \newcommand*\oldmacro{}%
@@ -45,7 +45,7 @@
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}{Agenda}
+	\begin{frame}{}
 		\begin{center}
 			Thank to Fred, on \href{https://github.com/frectures/go}{whose slides} I was able to create these :)
 		\end{center}
