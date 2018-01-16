@@ -76,7 +76,7 @@
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	\begin{frame}[fragile]{C++}
+	\begin{frame}[t,fragile]{C++}
 		\begin{minted}{cpp}
 // Within large projects, popular header files
 // get included thousands of times and hence
@@ -90,7 +90,6 @@
 		\texttt{gcc} copies specified file by \mintinline{cpp}{#include} recursively into source file. The \textit{same} header file gets recompiled over and over again.\\
 		\hfill\\
 		\textrightarrow ~Rob Pike: \href{https://www.youtube.com/watch?v=5kj5ApnhPAE}{Public Static Void} at OSCON 2010
-		\vfill
 \end{frame}
 
 	\begin{frame}
@@ -230,7 +229,7 @@ public class Person {
 	
 	\begin{frame}[fragile]{Hello world!}
 		\inputminted{go}{code/01_hello.go}
-		\\
+		\vspace*{-4ex}
 		\begin{itemize}
 			\item The import declaration imports entire packages
 			\item All imported names must be qualified
@@ -241,16 +240,16 @@ public class Person {
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Hello world!}
-		Get the \texttt{go} compiler:\\\\
+	\begin{frame}[t,fragile]{Hello world!}
+		Get the \texttt{go} compiler:
 		\begin{minted}{bash}
 $ sudo apt-get install golang-go
 $ sudo pacman -S go
 
 ...or download from https://golang.org/dl
 		\end{minted}
-		\\\\\\
-		Run the code\footnote{The \texttt{go run} command works for single files, not always for projects}:\\\\
+		\\
+		Run the code\footnote{The \texttt{go run} command works for single files, not always for projects}:
 		\begin{minted}{bash}
 $ go run hello.go
 		\end{minted}
@@ -258,7 +257,7 @@ $ go run hello.go
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Basics}
+	\begin{frame}[t,fragile]{Basics}
 		\begin{center}
 			Keywords:
 		\end{center}
@@ -269,6 +268,7 @@ chan        else        goto        package     switch
 const       fallthrough if          range       type
 continue    for         import      return      var
 		\end{minted}
+		\vspace*{-4ex}
 		\begin{center}
 			Constants:
 		\end{center}
@@ -279,7 +279,7 @@ true        false       nil         iota
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	\begin{frame}[fragile]{Basics}
+	\begin{frame}[t,fragile]{Basics}
 		\begin{center}
 			Functions:
 		\end{center}
@@ -294,7 +294,7 @@ close      append       imag
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	\begin{frame}[fragile]{Basics}
+	\begin{frame}[t,fragile]{Basics}
 		\begin{center}
 			Basic types:
 		\end{center}
@@ -307,7 +307,7 @@ complex64  complex128
 
 bool   byte    rune     string   error
 		\end{minted}
-		\\
+		\vspace*{-4ex}
 		\begin{itemize}
 			\item \mintinline{go}{int} and \mintinline{go}{uint} are platform-dependent
 			\item \mintinline{go}{byte} is the same as \mintinline{go}{uint8}
@@ -319,7 +319,7 @@ bool   byte    rune     string   error
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	\begin{frame}[fragile]{Basics}
+	\begin{frame}[t,fragile]{Basics}
 		\begin{center}
 			Operators:
 		\end{center}
@@ -330,7 +330,7 @@ bool   byte    rune     string   error
 &&
 ||
 		\end{minted}
-		\\
+		\vspace*{-4ex}
 		\begin{itemize}
 			\item only 5 precedence levels!
 			\item \mintinline{go}{^} is both bitwise-xor (infix) and bitwise-not (prefix)
@@ -338,6 +338,23 @@ bool   byte    rune     string   error
 		\end{itemize}
 \end{frame}
 	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[t,fragile]{}
+		\begin{center}
+			Declarations
+		\end{center}
+		\begin{minted}[linenos=false]{go}
+// three semantically identical alternatives
+var x int = 0
+var x int
+var x = 0
+
+// fourth alternative for local variables only
+x := 0
+		\end{minted}
+	\end{frame}
+
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\begin{frame}[fragile]{}
