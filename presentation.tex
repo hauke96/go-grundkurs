@@ -4,17 +4,15 @@
 \usepackage{minted}
 \usepackage{textcomp}
 
-\usemintedstyle{manni}
+\setminted{bgcolor=verydarkgray,linenos,tabsize=4,breaklines}
 
+% DARK
 \definecolor{verydarkgray}{RGB}{15,15,15}
 \renewcommand{\theFancyVerbLine}{\ttfamily \textcolor[rgb]{0.87,0.87,0.87}{\small \oldstylenums{\arabic{FancyVerbLine}}}}
 
+\usemintedstyle{manni}
 \usetheme{metropolis}
-%\setbeamerfont{headline}{size=\large}
-%\setbeamerfont*{section in head/foot}{size=\tiny}
-%\setbeamertemplate{toc}{circle}
-%\setbeamertemplate{itemize subitem}[triangle] % if you want a triangle
-%\setbeamercovered{transparent}
+\usecolortheme{owl}
 
 %Für [Seite]/[Anzahl-Seiten] in der unteren rechten ecke
 \newcommand*\oldmacro{}%
@@ -24,8 +22,6 @@
 	\oldmacro\hfill%
 	\thepage\,/\,\pageref{LastPage}
 }
-
-\usecolortheme{owl}
 
 %\beamertemplatenavigationsymbolsempty
 
@@ -64,7 +60,7 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\begin{frame}[fragile]{C++}
-		\begin{minted}[bgcolor=verydarkgray,linenos,tabsize=4]{cpp}
+		\begin{minted}{cpp}
 // Within large projects, popular header files
 // get included thousands of times and hence
 // have to be recompiled over and over again
@@ -103,7 +99,7 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	\begin{frame}[fragile]{Java I}
-		\begin{minted}[bgcolor=verydarkgray,linenos,stripnl=false,tabsize=4,breaklines]{java}
+		\begin{minted}[stripnl=false]{java}
 public class Person {
 	private String name;
 	private int age;
@@ -124,7 +120,7 @@ public class Person {
 		\end{minted}
 \end{frame}
 	\begin{frame}[fragile]{Java II}
-		\begin{minted}[bgcolor=verydarkgray,linenos,firstnumber=last,tabsize=4,breaklines]{java}
+		\begin{minted}[firstnumber=last]{java}
 	public int getAge() {
 		return age;
 	}
@@ -144,7 +140,7 @@ public class Person {
 		\end{minted}
 \end{frame}
 	\begin{frame}[fragile]{Java III}
-		\begin{minted}[bgcolor=verydarkgray,linenos,firstnumber=last,tabsize=4,breaklines]{java}
+		\begin{minted}[firstnumber=last]{java}
 		int result = 1;
 		result = prime * result + age;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -165,7 +161,7 @@ public class Person {
 \end{frame}
 	\begin{frame}[fragile]{Java IV}
 		\vspace{-2.5cm}
-		\begin{minted}[bgcolor=verydarkgray,linenos,firstnumber=last,tabsize=4,breaklines]{java}
+		\begin{minted}[firstnumber=last]{java}
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -211,5 +207,34 @@ public class Person {
 		\begin{center}
 			\includegraphics[width=0.85\textwidth]{images/the_general_problem-inv}
 		\end{center}
+	\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Hello world!}
+%		\gocode{code/01_hello.go}
+		\inputminted{go}{code/01_hello.go}
+		\begin{itemize}
+			\item The import declaration imports entire packages
+			\item All imported names must be qualified
+			\item Uppercase names are visible to other packages
+			\item Unused imports are compile-time errors!
+		\end{itemize}
+\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{Hello world!}
+		If not already done: Get the \texttt{go} compiler:
+		\begin{minted}{bash}
+$ sudo apt install golang-go
+
+...or download from https://golang.org/dl
+		\end{minted}
+\end{frame}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\begin{frame}[fragile]{}
 	\end{frame}
 \end{document}
